@@ -6,6 +6,7 @@ const Mix = () => {
             {/* Articles */}
 
             <div className="container">
+                <h3>Articles</h3>
                 <Link
                     href="https://www.freecodecamp.org/news/the-javascript-array-handbook"
                     className="link"
@@ -41,21 +42,48 @@ const Mix = () => {
             {/* Videos */}
 
             <div className="container">
-                <Link href="https://youtu.be/0EnjJpHuNGE" className="link">
-                    Redux Toolkit Shopping Cart
-                </Link>
+                <h3>Videos</h3>
                 <Link
                     href="https://youtu.be/dzPFDI5KKfc?si=VpabvJX6J6EyZjqX"
                     className="link"
                 >
                     Learn Reducx Toolkit
                 </Link>{" "}
+                <Link href="https://youtu.be/0EnjJpHuNGE" className="link">
+                    Redux Toolkit Shopping Cart
+                </Link>
                 <Link
                     href="https://www.youtube.com/watch?v=ap56ivm0dhw&ab_channel=TruthSeekers"
                     className="link"
                 >
                     Github ssh key generate
                 </Link>
+                <Link
+                    href="https://www.youtube.com/watch?v=BZcnhU0Mn4M&ab_channel=WebXLearner"
+                    className="link"
+                >
+                    Mongodb Atlas
+                </Link>
+                <Link
+                    href="https://www.youtube.com/watch?v=6wltxhVN0tM&t=207s&ab_channel=WebXLearner"
+                    className="link"
+                >
+                    Mongodb Atlas And Ip Adrees
+                </Link>
+                <Link
+                    href="https://www.youtube.com/watch?v=RlCPmQu2P9E&ab_channel=TheFullstackProject"
+                    className="link"
+                >
+                    Mongodb Atlas Delete Project
+                </Link>
+                <Link
+                    href="https://www.youtube.com/watch?v=jH9NR0Ua24o&ab_channel=RamNJava"
+                    className="link"
+                >
+                    Mongodb Atlas Delete Users
+                </Link>
+                {/* Links */}
+                <h3>Links</h3>
                 <Link href="https://www.imagetotext.io/" className="link">
                     Copy text from the image
                 </Link>
