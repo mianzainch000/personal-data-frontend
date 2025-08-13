@@ -1,0 +1,53 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Container */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Links */
+.link {
+  display: block;
+  padding: 12px 20px;
+  margin: 10px 0;
+  background-color: var(--link-bg);
+  color: var(--link-color);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: var(--link-hover-bg);
+}
+
+/* Headings & Numbers */
+h3 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--subtext-color);
+}
+
+h2 {
+  margin: 0.3rem 0 1rem;
+  padding: 10px;
+  background: var(--highlight-bg);
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--highlight-text);
+  box-shadow: var(--card-shadow);
+}

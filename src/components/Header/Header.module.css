@@ -1,0 +1,61 @@
+/* Header Bar */
+.headerBar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+/* Theme Toggle Button */
+.themeToggle {
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  transition: opacity 0.3s;
+  background-color: var(--link-color);
+}
+
+.themeToggle:hover {
+  opacity: 0.9;
+}
+/* Logout Button */
+.logoutBtn {
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  background-color: var(--link-color);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.logoutBtn:hover {
+  transform: translateY(-2px);
+  color: var(--link-color);
+  background-color: var(--link-hover-bg);
+}
+
+/* Welcome Text */
+.welcomeText {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  text-align: center;
+  border-radius: 10px;
+  color: var(--link-color);
+  background: var(--link-bg);
+  box-shadow: var(--card-shadow);
+  transition: background 0.3s ease;
+}
+
+.welcomeText:hover {
+  background: var(--link-hover-bg);
+}
