@@ -24,15 +24,15 @@
   border: none;
   cursor: pointer;
   position: absolute;
-  color: var(--text-color);
   background: transparent;
+  color: var(--text-color);
 }
 
 .modalActions {
   gap: 10px;
   display: flex;
   margin-top: 15px;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .confirmBtn {

@@ -20,7 +20,7 @@ const ConfirmModal = ({
           onClick={onCancel}
           aria-label="Close"
         >
-          x
+          &#10006;
         </button>
 
         <h3>{title}</h3>
