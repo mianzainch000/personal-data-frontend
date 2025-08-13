@@ -24,7 +24,7 @@ const CvAndMovieLinks = () => {
                 <Link href="https://www.watchonlinemovies.com.pk/" className="link">
                     onlinemovies
                 </Link>
-                <Link href="https://themoviezflix.ae.org/about-us/" className="link">
+                <Link href="https://themoviesflix.gg/" className="link">
                     movieflix
                 </Link>
                 <Link href="https://kickasstorrents.to/" className="link">
