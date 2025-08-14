@@ -10,13 +10,12 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <div className="container">
-                <Header
-                    initialTheme={theme}
-                    initialFirstName={firstName}
-                    initialLastName={lastName}
-                />
-            </div>
+            <Header
+                initialTheme={theme}
+                initialFirstName={firstName}
+                initialLastName={lastName}
+            />
+
             {children}
         </>
     );

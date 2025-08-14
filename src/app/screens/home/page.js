@@ -3,28 +3,14 @@ import Link from "next/link";
 const Home = () => {
     return (
         <div className="container">
-            <Link href="https://islamic-research.netlify.app" className="link">
-                Islamic Research
+            <Link
+                href="https://islamic-research.netlify.app"
+                style={{ textDecoration: "none" }}
+            >
+                <h2 className="categorie-heading"> Islamic Research</h2>
             </Link>
-
-            <Link href="/screens/islamic-links" className="link">
-                Islamic Links
-            </Link>
-
-            <Link href="/screens/fesco" className="link">
-                FESCO
-            </Link>
-
-            <Link href="/screens/cv-movie-links" className="link">
-                CV + Movie Links
-            </Link>
-
-            <Link href="/screens/mix" className="link">
-                Mix
-            </Link>
-
-            <Link href="/screens/interview" className="link">
-                Interviews
+            <Link href="/screens/categories" style={{ textDecoration: "none" }}>
+                <h2 className="categorie-heading">Mix Categories</h2>
             </Link>
         </div>
     );

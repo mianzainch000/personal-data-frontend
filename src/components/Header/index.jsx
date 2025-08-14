@@ -1,9 +1,10 @@
 "use client";
-import Link from "next/link";
+import Image from "next/image";
 import styles from "./Header.module.css";
 import { useState, useEffect } from "react";
+import ConfirmModal from "@/components/ConfirmModal";
 import { setCookie, deleteCookie } from "cookies-next";
-import ConfirmModal from "@/components/ConfirmModal"; // import modal
+import Link from "next/link";
 
 const Header = ({ initialTheme, initialFirstName, initialLastName }) => {
   const [theme, setTheme] = useState(initialTheme);
@@ -29,19 +30,32 @@ const Header = ({ initialTheme, initialFirstName, initialLastName }) => {
   return (
     <>
       <div className={styles.headerBar}>
-        <button onClick={toggleTheme} className={styles.themeToggle}>
-          Switch to {theme === "light" ? "Dark" : "Light"} Mode
-        </button>
-        <button onClick={() => setShowModal(true)} className={styles.logoutBtn}>
-          Logout
-        </button>
+        {/* Left: Logo */}
+        <div className={styles.logo}>
+          <Link href={"/"}>
+            <Image src="/logo.png" alt="Logo" width={50} height={50} />
+          </Link>
+        </div>
+
+        {/* Center: Welcome Text */}
+        <div className={styles.welcomeText}>
+          Welcome {initialFirstName || "Guest"} {initialLastName || ""}
+        </div>
+
+        {/* Right: Theme + Logout */}
+        <div className={styles.rightActions}>
+          <button onClick={toggleTheme} className={styles.themeToggle}>
+            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button>
+          <button
+            onClick={() => setShowModal(true)}
+            className={styles.logoutBtn}
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
-      <h2 className={styles.welcomeText}>
-        Welcome {initialFirstName || "No user data"} {initialLastName || ""}
-      </h2>
-
-      {/* Confirm Modal */}
       <ConfirmModal
         isOpen={showModal}
         title="Confirm Logout"
