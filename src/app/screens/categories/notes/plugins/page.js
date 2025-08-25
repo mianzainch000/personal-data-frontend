@@ -4,7 +4,7 @@ const Plugins = () => {
   return (
     <div className={"container"}>
       <Link
-        href="/commands.pdf"
+        href="/importSortAllFiles.pdf"
         download
         rel="noopener noreferrer"
         className="link"
@@ -13,12 +13,21 @@ const Plugins = () => {
       </Link>
 
       <Link
-        href="/localBranchDelete.pdf"
+        href="/importSortSingleFiles.pdf"
         download
         rel="noopener noreferrer"
         className="link"
       >
         Import sort single file
+      </Link>
+
+      <Link
+        href="/importSortScript.pdf"
+        download
+        rel="noopener noreferrer"
+        className="link"
+      >
+        Import sort script
       </Link>
 
       <Link
@@ -40,12 +49,12 @@ const Plugins = () => {
       </Link>
 
       <Link
-        href="/specificBranchCommitDelete.pdf"
+        href="/esLint.pdf"
         download
         rel="noopener noreferrer"
         className="link"
       >
-        Es Lint
+        Es Lint unuseless thing delete import automatic
       </Link>
 
       <Link
@@ -58,7 +67,7 @@ const Plugins = () => {
       </Link>
 
       <Link
-        href="/specificBranchCommitDelete.pdf"
+        href="/impotModulecssSort.pdf"
         download
         rel="noopener noreferrer"
         className="link"
@@ -67,7 +76,7 @@ const Plugins = () => {
       </Link>
 
       <Link
-        href="/specificBranchCommitDelete.pdf"
+        href="/importModuleFormatting.pdf"
         download
         rel="noopener noreferrer"
         className="link"
