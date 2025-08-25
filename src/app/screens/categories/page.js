@@ -12,6 +12,7 @@ const Categories = () => {
         { href: "categories/motorbike", label: "Motorbike" },
         { href: "categories/message", label: "Message Hr" },
         { href: "categories/interview", label: "Interviews" },
+        { href: "categories/notes", label: "Notes" },
     ];
 
     return (
