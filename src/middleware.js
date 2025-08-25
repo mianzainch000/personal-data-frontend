@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 
-const publicPages = ["/", "/auth/login", "/auth/forgotPassword", "/auth/resetPassword"];
+const publicPages = [
+  "/",
+  "/auth/login",
+  "/auth/forgotPassword",
+  "/auth/resetPassword",
+];
 
 const protectedPages = [
   "/screens/home",
@@ -15,7 +20,7 @@ export default function middleware(req) {
   // Check if the current page is a public or protected page
   const isPublicPage = publicPages.includes(pathname);
   const isProtectedPage = protectedPages.some(
-    (page) => pathname === page || pathname.startsWith(`${page}/`)
+    (page) => pathname === page || pathname.startsWith(`${page}/`),
   );
 
   // If not authenticated and trying to access a protected page, redirect to login

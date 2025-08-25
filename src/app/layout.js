@@ -1,4 +1,4 @@
-import "./style.css"
+import "./style.css";
 import "./globals.css";
 import { cookies } from "next/headers";
 import NextLoader from "@/components/NextTopLoader";
@@ -30,7 +30,8 @@ export default function RootLayout({ children }) {
       >
         <SnackbarProvider>
           <NextLoader />
-          {children}</SnackbarProvider>
+          {children}
+        </SnackbarProvider>
       </body>
     </html>
   );
