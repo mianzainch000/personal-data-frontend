@@ -19,7 +19,7 @@ export const authOptions = {
             {
               email: credentials?.email,
               password: credentials?.password,
-            }
+            },
           );
           if (res?.status === 201) {
             cookies().set("sessionToken", res?.data?.token, {
@@ -39,10 +39,10 @@ export const authOptions = {
         } catch (error) {
           console.error(
             "Authorize error:",
-            error?.response?.data || error.message
+            error?.response?.data || error.message,
           );
           throw new Error(
-            error?.res?.data?.message || "Invalid email or password"
+            error?.res?.data?.message || "Invalid email or password",
           );
         }
       },

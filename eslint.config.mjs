@@ -27,21 +27,21 @@ const eslintConfig = [
     },
 
     plugins: {
-      "unused-imports": eslintPluginUnusedImports
+      "unused-imports": eslintPluginUnusedImports,
     },
 
     rules: {
       "no-unused-vars": "off",
       "unused-imports/no-unused-vars": [
         "warn",
-        { vars: "all", args: "after-used" }
+        { vars: "all", args: "after-used" },
       ],
       "unused-imports/no-unused-imports": "warn",
       "@next/next/no-assign-module-variable": "off",
       "react-hooks/rules-of-hooks": "off",
-      "react-hooks/exhaustive-deps": "off"
+      "react-hooks/exhaustive-deps": "off",
     },
-  }
+  },
 ];
 
 export default eslintConfig;

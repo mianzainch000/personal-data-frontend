@@ -1,16 +1,12 @@
-import React from 'react'
-import ForgotPassword from './template'
+import React from "react";
+import ForgotPassword from "./template";
 
 const ForgotPasswordForm = () => {
-    return (
-        <ForgotPassword />
-    )
-}
+  return <ForgotPassword />;
+};
 
-export default ForgotPasswordForm
+export default ForgotPasswordForm;
 
 export function generateMetadata() {
-    return { title: "Forgot Password" };
+  return { title: "Forgot Password" };
 }
-
-

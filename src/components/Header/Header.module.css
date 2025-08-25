@@ -46,7 +46,9 @@
   border-radius: 6px;
   color: var(--text-color);
   background-color: var(--link-color);
-  transition: transform 0.2s, opacity 0.3s;
+  transition:
+    transform 0.2s,
+    opacity 0.3s;
 }
 
 .themeToggle:hover {
@@ -63,7 +65,9 @@
   border-radius: 6px;
   color: var(--text-color);
   background-color: #ef4444;
-  transition: transform 0.2s, opacity 0.3s;
+  transition:
+    transform 0.2s,
+    opacity 0.3s;
 }
 
 .logoutBtn:hover {
@@ -91,4 +95,3 @@
     justify-content: center;
   }
 }
-

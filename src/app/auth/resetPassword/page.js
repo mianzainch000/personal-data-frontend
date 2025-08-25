@@ -1,16 +1,12 @@
-import React from 'react'
-import ResetPassword from './template'
+import React from "react";
+import ResetPassword from "./template";
 
 const ResetPasswordForm = () => {
-    return (
-        <ResetPassword />
-    )
-}
+  return <ResetPassword />;
+};
 
-export default ResetPasswordForm
+export default ResetPasswordForm;
 
 export function generateMetadata() {
-    return { title: "Reset Password" };
+  return { title: "Reset Password" };
 }
-
-

@@ -8,99 +8,99 @@ import { apiConfig } from "@/config/apiConfig";
 import { useSnackbar } from "@/components/Snackbar";
 
 const ForgotPassword = () => {
-    // hooks
+  // hooks
 
-    const showAlert = useSnackbar();
+  const showAlert = useSnackbar();
 
-    // states
+  // states
 
-    const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        email: "",
-    });
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+  });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        // ForgotPassword Api fnction call
+    // ForgotPassword Api fnction call
 
-        await ForgotPasswordApi();
-    };
+    await ForgotPasswordApi();
+  };
 
-    const ForgotPasswordApi = async () => {
-        try {
-            setLoading(true);
-            const res = await axios.post(
-                `${apiConfig.baseUrl}${apiConfig.forgotPassword}`,
-                { email: formData.email }
-            );
+  const ForgotPasswordApi = async () => {
+    try {
+      setLoading(true);
+      const res = await axios.post(
+        `${apiConfig.baseUrl}${apiConfig.forgotPassword}`,
+        { email: formData.email },
+      );
 
-            if (res?.status === 201) {
-                showAlert({
-                    message: res?.data?.message,
-                    type: "success",
-                });
-                setFormData({
-                    email: "",
-                });
-            } else {
-                showAlert({
-                    message: res?.data.message,
-                    type: "error",
-                });
-            }
-        } catch (error) {
-            showAlert({
-                message: error,
-                type: "error",
-            });
-        } finally {
-            setLoading(false);
-        }
-    };
-    return (
-        <>
-            {loading && <Loader />}
-            <div className={styles.authContainer}>
-                <div className={styles.card}>
-                    <h2 className={styles.title}>Reset Link</h2>
+      if (res?.status === 201) {
+        showAlert({
+          message: res?.data?.message,
+          type: "success",
+        });
+        setFormData({
+          email: "",
+        });
+      } else {
+        showAlert({
+          message: res?.data.message,
+          type: "error",
+        });
+      }
+    } catch (error) {
+      showAlert({
+        message: error,
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+  return (
+    <>
+      {loading && <Loader />}
+      <div className={styles.authContainer}>
+        <div className={styles.card}>
+          <h2 className={styles.title}>Reset Link</h2>
 
-                    <form onSubmit={handleSubmit}>
-                        {/* Email */}
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>Email</label>
-                            <input
-                                className={styles.input}
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                autoComplete="off"
-                            />
-                        </div>
-
-                        {/* Submit Button */}
-                        <button
-                            type="submit"
-                            className={styles.button}
-                            disabled={!formData.email}
-                        >
-                            Verify
-                        </button>
-                    </form>
-
-                    {/* Footer */}
-                    <div className={styles.footer}>
-                        <Link href="/">Go to login</Link>
-                    </div>
-                </div>
+          <form onSubmit={handleSubmit}>
+            {/* Email */}
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Email</label>
+              <input
+                className={styles.input}
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete="off"
+              />
             </div>
-        </>
-    );
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className={styles.button}
+              disabled={!formData.email}
+            >
+              Verify
+            </button>
+          </form>
+
+          {/* Footer */}
+          <div className={styles.footer}>
+            <Link href="/">Go to login</Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default ForgotPassword;
