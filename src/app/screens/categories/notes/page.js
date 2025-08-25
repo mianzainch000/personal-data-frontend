@@ -3,7 +3,7 @@ import Link from "next/link";
 const Notes = () => {
   const notes = [
     { href: "notes/github", label: "Github" },
-    { href: "plugins", label: "Plugins" },
+    { href: "notes/plugins", label: "Plugins" },
   ];
 
   return (

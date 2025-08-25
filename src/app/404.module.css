@@ -73,6 +73,9 @@
 }
 
 .primaryBtn {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
   color: white;
   font-weight: 600;
   border-radius: 12px;
@@ -82,9 +85,6 @@
   background: var(--accent);
   background-clip: padding-box;
   box-shadow: 0 8px 20px rgba(59, 130, 246, 0.18);
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
 }
 
 .primaryBtn:hover,
@@ -94,6 +94,9 @@
 }
 
 .ghostBtn {
+  transition:
+    background 0.14s ease,
+    transform 0.14s ease;
   color: #0f172a;
   font-weight: 600;
   border-radius: 12px;
@@ -102,9 +105,6 @@
   padding: 0.62rem 0.9rem;
   background: transparent;
   border: 1px solid rgba(15, 23, 42, 0.06);
-  transition:
-    background 0.14s ease,
-    transform 0.14s ease;
 }
 
 .ghostBtn:hover,

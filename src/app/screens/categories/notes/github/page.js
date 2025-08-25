@@ -44,3 +44,7 @@ const Github = () => {
 };
 
 export default Github;
+
+export function generateMetadata() {
+  return { title: "Github" };
+}

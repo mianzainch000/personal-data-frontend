@@ -20,6 +20,9 @@
 }
 
 .tab {
+  transition:
+    background 0.3s,
+    color 0.3s;
   flex: 1;
   cursor: pointer;
   text-align: center;
@@ -28,9 +31,6 @@
   border: 1px solid #ddd;
   color: var(--text-color);
   background: var(--link-bg);
-  transition:
-    background 0.3s,
-    color 0.3s;
 }
 
 .tab:hover {
@@ -47,15 +47,15 @@
 /* Consumer Info */
 
 .consumerInfo {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
   color: var(--text-color);
   background: var(--card-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.3s ease;
 }
 
 .consumerInfo:hover {
@@ -75,6 +75,9 @@
 }
 
 .link {
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
   font-size: 18px;
   font-weight: 600;
   margin-top: 15px;
@@ -85,9 +88,6 @@
   color: var(--link-color);
   background-color: var(--link-bg);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
 }
 
 .link:hover {
