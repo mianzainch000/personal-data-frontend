@@ -1,19 +1,46 @@
 import React from "react";
 import Link from "next/link";
 
-const page = () => {
+const Github = () => {
   return (
     <div className={"container"}>
       <Link
-        href="/Zain Ishfaq.pdf"
+        href="/commands.pdf"
         download
         rel="noopener noreferrer"
         className="link"
       >
-        Download CV
+        Github commands + Alias
+      </Link>
+
+      <Link
+        href="/localBranchDelete.pdf"
+        download
+        rel="noopener noreferrer"
+        className="link"
+      >
+        Delete local branch
+      </Link>
+
+      <Link
+        href="/allCommitdDelete.pdf"
+        download
+        rel="noopener noreferrer"
+        className="link"
+      >
+        All commits delete
+      </Link>
+
+      <Link
+        href="/specificBranchCommitDelete.pdf"
+        download
+        rel="noopener noreferrer"
+        className="link"
+      >
+        Delete specific branch
       </Link>
     </div>
   );
 };
 
-export default page;
+export default Github;
