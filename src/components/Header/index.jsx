@@ -23,16 +23,17 @@ const Header = ({ initialTheme, initialFirstName, initialLastName }) => {
     setCookie("theme", newTheme, { maxAge: 60 * 60 * 24 * 365 });
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     setShowModal(false);
-    deleteCookie("sessionToken");
-    deleteCookie("firstName");
-    deleteCookie("lastName");
+    deleteCookie("sessionToken", { path: "/" });
+    deleteCookie("firstName", { path: "/" });
+    deleteCookie("lastName", { path: "/" });
     showAlert({
       message: "✅ Logout successful",
       type: "success",
     });
-    router.push("/");
+    router.replace("/");
+    router.refresh();
   };
 
   return (
