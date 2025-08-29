@@ -1,0 +1,91 @@
+.authContainer {
+  margin: 0;
+  display: flex;
+  min-height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.card {
+  width: 100%;
+  padding: 24px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: black;
+  margin-bottom: 16px;
+}
+
+.formGroup {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.label {
+  color: black;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 95%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.passwordWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.togglePassword {
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  margin-left: -35px;
+}
+
+.button {
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 16px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background: #b5b5b5;
+}
+
+.footer {
+  margin-top: 16px;
+}
+
+.footer {
+  color: #2575fc;
+  text-align: left;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 12px;
+    max-width: 90%;
+  }
+}
