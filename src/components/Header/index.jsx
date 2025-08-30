@@ -28,6 +28,10 @@ const Header = ({ initialTheme, initialFirstName, initialLastName }) => {
     deleteCookie("sessionToken", { path: "/" });
     deleteCookie("firstName", { path: "/" });
     deleteCookie("lastName", { path: "/" });
+    deleteCookie("activeTab", { path: "/" });
+    deleteCookie("yearFilter", { path: "/" });
+    deleteCookie("monthFilter", { path: "/" });
+    deleteCookie("currentPage", { path: "/" });
     showAlert({
       message: "✅ Logout successful",
       type: "success",
