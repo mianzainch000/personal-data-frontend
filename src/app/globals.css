@@ -1,0 +1,21 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --link-bg: #f5f5f5;
+  --link-hover-bg: #e2e8f0;
+  --link-color: #2563eb;
+  --highlight-text: #1e40af;
+  --card-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a202c;
+  --text-color: #f7fafc;
+  --link-bg: #2d3748;
+  --link-hover-bg: #4a5568;
+  --link-color: #63b3ed;
+  --highlight-text: #90cdf4;
+  --card-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  --card-bg: #2d3748;
+}
