@@ -4,13 +4,20 @@ import { useState } from "react";
 export default function PasswordTable({ initialData }) {
     const [search, setSearch] = useState("");
 
-    // ✅ Case-insensitive search by app name
     const filteredData = initialData.filter((row) =>
         row.app.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
-        <div>
+        <div
+            style={{
+                background: "var(--bg-color)",
+                color: "var(--text-color)",
+                padding: "1rem",
+                borderRadius: "8px",
+                boxShadow: "var(--card-shadow)",
+            }}
+        >
             {/* Search bar */}
             <input
                 type="text"
@@ -22,8 +29,11 @@ export default function PasswordTable({ initialData }) {
                     margin: "1rem 0",
                     width: "100%",
                     maxWidth: "400px",
-                    border: "1px solid #ddd",
-                    borderRadius: "5px",
+                    border: "1px solid var(--link-hover-bg)",
+                    borderRadius: "6px",
+                    background: "var(--link-bg)",
+                    color: "var(--text-color)",
+                    outline: "none",
                 }}
             />
 
@@ -36,7 +46,7 @@ export default function PasswordTable({ initialData }) {
                 }}
             >
                 <thead>
-                    <tr style={{ background: "#f5f5f5" }}>
+                    <tr style={{ background: "var(--link-bg)" }}>
                         <th style={thStyle}>App</th>
                         <th style={thStyle}>Email</th>
                         <th style={thStyle}>Password</th>
@@ -48,7 +58,14 @@ export default function PasswordTable({ initialData }) {
                             <tr key={index}>
                                 <td style={tdStyle}>{row.app}</td>
                                 <td style={tdStyle}>{row.email}</td>
-                                <td style={tdStyle}>{row.password}</td>
+                                <td
+                                    style={{
+                                        ...tdStyle,
+                                        fontWeight: "bold",
+                                    }}
+                                >
+                                    {row.password}
+                                </td>
                             </tr>
                         ))
                     ) : (
@@ -65,13 +82,14 @@ export default function PasswordTable({ initialData }) {
 }
 
 const thStyle = {
-    padding: "10px",
-    border: "1px solid #ddd",
+    padding: "12px",
+    border: "1px solid var(--link-hover-bg)",
     textAlign: "left",
     fontWeight: "bold",
+    color: "var(--link-color)",
 };
 
 const tdStyle = {
     padding: "10px",
-    border: "1px solid #ddd",
+    border: "1px solid var(--link-hover-bg)",
 };
