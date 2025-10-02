@@ -7,20 +7,18 @@ import styles from "../../auth.module.css";
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "@/components/Snackbar";
 import handleAxiosError from "@/components/HandleAxiosError";
+import { setCookie } from "cookies-next";
 
 const LoginForm = () => {
-  // hooks
-
   const router = useRouter();
   const showAlert = useSnackbar();
-
-  // states
 
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+    specialCode: "", // ✅ new field
   });
 
   const handleChange = (e) => {
@@ -29,9 +27,6 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Login Api fnction call
-
     await Login();
   };
 
@@ -45,27 +40,23 @@ const LoginForm = () => {
       });
 
       if (res?.ok) {
-        showAlert({
-          message: "✅ Login successful",
-          type: "success",
-        });
-        setFormData({
-          email: "",
-          password: "",
-        });
+        // ✅ check secret code
+        if (formData.specialCode === "109213123141947") {
+          setCookie("showPasswordRoute", "true", { maxAge: 60 * 60 }); // 1 hr
+        } else {
+          setCookie("showPasswordRoute", "false");
+        }
+
+        showAlert({ message: "✅ Login successful", type: "success" });
+
+        setFormData({ email: "", password: "", specialCode: "" });
         router.push("/screens/home");
       } else {
-        showAlert({
-          message: `❌ ${res?.error}`,
-          type: "error",
-        });
+        showAlert({ message: `❌ ${res?.error}`, type: "error" });
       }
     } catch (error) {
       const { message } = handleAxiosError(error);
-      showAlert({
-        message,
-        type: "error",
-      });
+      showAlert({ message, type: "error" });
     } finally {
       setLoading(false);
     }
@@ -114,7 +105,20 @@ const LoginForm = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Secret Code */}
+            <div className={styles.formGroup}>
+              <label className={styles.label}>Special Code</label>
+              <input
+                className={styles.input}
+                type="password"
+                name="specialCode"
+                value={formData.specialCode}
+                onChange={handleChange}
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Submit */}
             <button
               type="submit"
               className={styles.button}
@@ -124,7 +128,6 @@ const LoginForm = () => {
             </button>
           </form>
 
-          {/* Footer */}
           <div className={styles.footer}>
             <Link href="/auth/forgotPassword">Forgot Password?</Link>
           </div>

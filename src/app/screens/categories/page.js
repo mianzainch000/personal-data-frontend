@@ -1,6 +1,16 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getCookie } from "cookies-next";
 
 const Categories = () => {
+  const [showPasswordRoute, setShowPasswordRoute] = useState(false);
+
+  useEffect(() => {
+    const hasAccess = getCookie("showPasswordRoute") === "true";
+    setShowPasswordRoute(hasAccess);
+  }, []);
+
   const categories = [
     { href: "categories/islamic-links", label: "Islamic Links" },
     { href: "categories/movie", label: "Movies Links" },
@@ -14,6 +24,10 @@ const Categories = () => {
     { href: "categories/interview", label: "Interviews" },
     { href: "categories/notes", label: "Notes" },
   ];
+
+  if (showPasswordRoute) {
+    categories.push({ href: "categories/password", label: "🔒 Secret Password Route" });
+  }
 
   return (
     <div className="categorie-container">
@@ -31,6 +45,6 @@ const Categories = () => {
 
 export default Categories;
 
-export function generateMetadata() {
-  return { title: "Categories" };
-}
+// export function generateMetadata() {
+//   return { title: "Categories" };
+// }
