@@ -234,3 +234,7 @@ const Password = () => {
   );
 };
 export default Password;
+
+export function generateMetadata() {
+  return { title: "Passwords" };
+}
