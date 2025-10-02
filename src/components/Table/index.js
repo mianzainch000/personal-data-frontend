@@ -44,8 +44,8 @@ export default function PasswordTable({ initialData }) {
                 </thead>
                 <tbody>
                     {filteredData.length > 0 ? (
-                        filteredData.map((row) => (
-                            <tr key={row.id}>
+                        filteredData.map((row, index) => (
+                            <tr key={index}>
                                 <td style={tdStyle}>{row.app}</td>
                                 <td style={tdStyle}>{row.email}</td>
                                 <td style={tdStyle}>{row.password}</td>

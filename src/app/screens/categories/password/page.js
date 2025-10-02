@@ -16,10 +16,16 @@ export default function PasswordPage() {
 
     // Sample data (server side)
     const initialData = [
-        { id: 1, app: "GitHub", email: "zain@example.com", password: "Gh@12345" },
-        { id: 2, app: "LinkedIn", email: "zain.li@example.com", password: "Li!Pass987" },
-        { id: 3, app: "Gmail", email: "zain.mail@example.com", password: "Gm#2025" },
-        { id: 4, app: "Facebook", email: "zain.fb@example.com", password: "Fb@Pass321" },
+        { app: "Mobile", email: "mianzainch000@gmail.com", password: "zainch26191438211" },
+        { app: "Laptop", email: "zainishfaq081@gmail.com", password: "1234432112344321" },
+        { app: "Linkdin", email: "mianzainch000@gmail.com", password: "Zainch211!@#" },
+        { app: "Rozze", email: "mianzainch000@gmail.com", password: "Zainch211!@" },
+        { app: "ChatGPT", email: "mianzainch000@gmail.com", password: "Zainch211@" },
+        { app: "Gramerly", email: "mianzainch000@gmail.com", password: "Zainch211!" },
+        { app: "Overleaf", email: "mianzainch000@gmail.com", password: "Zainch211!@#$" },
+        { app: "Github : username:(mianzainch000)", email: "mianzainch000@gmail.com", password: "ZainIshfaq211!" },
+        { app: "Github : username:(zainishfaq081)", email: "zainishfaq081@gmail.com", password: "Zain23021999" },
+
     ];
 
     return (
