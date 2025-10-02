@@ -71,7 +71,6 @@ const Password = () => {
             email: "zainishfaq081@gmail.com",
             password: "Zainch211!",
         },
-
         {
             app: "Udemy",
             email: "shahzebjadoon0@gmail.com",
@@ -92,7 +91,6 @@ const Password = () => {
             email: "zainishfaq231999@gmail.com",
             password: "Zainch211!@#",
         },
-
         {
             app: "ExpenseTracker",
             email: "expensetracker637@gmail.com",
@@ -113,7 +111,6 @@ const Password = () => {
             email: "mianzainch000@gmail.com",
             password: "261914211Z",
         },
-
         {
             app: "JazzCash",
             email: "",
@@ -129,14 +126,13 @@ const Password = () => {
             email: "",
             password: "8348",
         },
-
         {
             app: "Dewoo Express Application",
             email: "",
             password: "1234567890",
         },
         {
-            app: "Food Panda ",
+            app: "Food Panda",
             email: "",
             password: "fokuson211",
         },
@@ -150,11 +146,80 @@ const Password = () => {
             email: "",
             password: "2131",
         },
-
         {
             app: "Allied Bank Application ",
             email: "username (zain211)",
             password: "Zain@2302",
+        },
+        {
+            app: "SadaPay",
+            email: "",
+            password: "12457",
+        },
+        {
+            app: "Sadapay Iban Number  ",
+            email: "PK90SADA0000003417872458",
+            password: "",
+        },
+        {
+            app: "Sadapay Card Password ",
+            email: "",
+            password: "4394",
+        },
+        {
+            app: "Askari Bank Account Number",
+            email: "1000320237343",
+            password: "",
+        },
+        {
+            app: "Nayapay",
+            email: "zainishfaq211@nayapay",
+            password: "Zain2399!",
+        },
+        {
+            app: "Nayapay Card Password",
+            email: "",
+            password: "990223",
+        },
+        {
+            app: "Nayapay ATM Password",
+            email: "",
+            password: "1707",
+        },
+        {
+            app: "Nayapay(Question)",
+            email: "day born",
+            password: "Tuesday",
+        },
+        {
+            app: "Nayapay(Question)",
+            email: "grandmother name",
+            password: "Halima Bibi",
+        },
+        {
+            app: "Binance",
+            email: "mianzainch000@gmail.com",
+            password: "Zainch211@#£",
+        },
+        {
+            app: "Smart Power App (Meter)",
+            email: "mianzainch000@gmail.com",
+            password: "Zainch211!@#",
+        },
+        {
+            app: "Weather Api Key",
+            email: "5826497ff4ff4566874142923242312",
+            password: "",
+        },
+        {
+            app: "npmjs.com",
+            email: "mianzainch000@gmail.com",
+            password: "userName: zain211  Password: Zainch211!",
+        },
+        {
+            app: "Atiqa Gujranwala Adress",
+            email: "EE Ext 61 house wafay block city housing society gujranwala",
+            password: "",
         },
     ];
 
