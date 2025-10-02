@@ -56,6 +56,106 @@ const Password = () => {
             email: "zainishfaq081@gmail.com",
             password: "Zain23021999",
         },
+        {
+            app: "Netlify",
+            email: "mianzainch000@gmail.com",
+            password: "mianzainch000",
+        },
+        {
+            app: "Netlify",
+            email: "zainishfaq081@gmail.com",
+            password: "zainishfaq081",
+        },
+        {
+            app: "Zoom App",
+            email: "zainishfaq081@gmail.com",
+            password: "Zainch211!",
+        },
+
+        {
+            app: "Udemy",
+            email: "shahzebjadoon0@gmail.com",
+            password: "anaconda123",
+        },
+        {
+            app: "Vanced Youtube",
+            email: "lordasif1234@gmail.com",
+            password: "lord0000",
+        },
+        {
+            app: "Vanced Youtube(Zain)",
+            email: "zainishfaq203@gmail.com",
+            password: "Zainch211@#",
+        },
+        {
+            app: "Vanced Youtube(Mama)",
+            email: "zainishfaq231999@gmail.com",
+            password: "Zainch211!@#",
+        },
+
+        {
+            app: "ExpenseTracker",
+            email: "expensetracker637@gmail.com",
+            password: "Zain05061999",
+        },
+        {
+            app: "Wifi",
+            email: "Admin Username",
+            password: "telecomadmin",
+        },
+        {
+            app: "Wifi",
+            email: "Admin Password",
+            password: "admintelecom",
+        },
+        {
+            app: "Android Watch App Mibro",
+            email: "mianzainch000@gmail.com",
+            password: "261914211Z",
+        },
+
+        {
+            app: "JazzCash",
+            email: "",
+            password: "1963",
+        },
+        {
+            app: "Easypaisa",
+            email: "",
+            password: "10263",
+        },
+        {
+            app: "Taylor Nap",
+            email: "",
+            password: "8348",
+        },
+
+        {
+            app: "Dewoo Express Application",
+            email: "",
+            password: "1234567890",
+        },
+        {
+            app: "Food Panda ",
+            email: "",
+            password: "fokuson211",
+        },
+        {
+            app: "Allied Bank Account Number",
+            email: "10086389380010",
+            password: "",
+        },
+        {
+            app: " Allied Bank ATM Card",
+            email: "",
+            password: "2131",
+        },
+
+        {
+            app: "Allied Bank Application ",
+            email: "username (zain211)",
+            password: "Zain@2302",
+        },
     ];
 
     return (
