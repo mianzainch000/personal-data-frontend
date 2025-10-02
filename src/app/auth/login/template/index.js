@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Loader from "@/components/Loader";
+import { setCookie } from "cookies-next";
 import styles from "../../auth.module.css";
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "@/components/Snackbar";
 import handleAxiosError from "@/components/HandleAxiosError";
-import { setCookie } from "cookies-next";
 
 const LoginForm = () => {
   const router = useRouter();
