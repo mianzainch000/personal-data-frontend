@@ -4,5 +4,6 @@ export const apiConfig = {
     get: "get",
     post: "create",
     delete: "delete",
+    update: "update",
   },
 };
