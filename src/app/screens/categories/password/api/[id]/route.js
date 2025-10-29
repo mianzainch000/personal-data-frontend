@@ -4,7 +4,7 @@ import axiosClient from "@/config/axiosClient";
 export const deleteUser = async (id) => {
   try {
     const response = await axiosClient.delete(
-      `${apiConfig.password.delete}/${id}`
+      `${apiConfig.password.delete}/${id}`,
     );
     return response;
   } catch (error) {

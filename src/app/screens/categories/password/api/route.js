@@ -12,13 +12,11 @@ export async function POST(req) {
   });
 }
 
-
 export const getData = async () => {
   return await axiosClient.get(apiConfig.password.get);
 };
 
 export async function GET() {
   const data = await getData();
-
   return Response.json(data?.data);
 }

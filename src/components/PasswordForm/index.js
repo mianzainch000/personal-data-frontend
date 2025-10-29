@@ -5,16 +5,15 @@ import { useState } from "react";
 import styles from "./PasswordForm.module.css";
 import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
-export default function PasswordForm() {
 
+export default function PasswordForm() {
   const showAlertMessage = useSnackbar();
-  const [appName, setAppName] = useState("");
   const [email, setEmail] = useState("");
+  const [appName, setAppName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const [showForm, setShowForm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ export default function PasswordForm() {
 
       if (res?.status === 201) {
         showAlertMessage({
-          message: res?.data?.message || "Password added successfully!",
+          message: res?.data?.message,
           type: "success",
         });
 
@@ -45,7 +44,7 @@ export default function PasswordForm() {
       } else {
         showAlertMessage({
           message:
-            res?.data?.errors || res?.data?.message || "Something went wrong",
+            res?.data?.errors || res?.data?.message,
           type: "error",
         });
       }
@@ -59,8 +58,6 @@ export default function PasswordForm() {
       setLoading(false);
     }
   };
-
-
 
   return (
     <>
@@ -108,10 +105,10 @@ export default function PasswordForm() {
 
                 <label>Password</label>
                 <input
-                  type="password"
+                  type="text"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="e.g. ********"
+                  placeholder="1234"
                 />
 
                 <button type="submit" className={styles.submitButton}>

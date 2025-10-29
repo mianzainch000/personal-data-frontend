@@ -1,9 +1,9 @@
 "use client";
-import { useState, useEffect } from "react";
 import axios from "axios";
-import handleAxiosError from "../HandleAxiosError";
 import Loader from "../Loader";
 import ConfirmModal from "../ConfirmModal";
+import { useState, useEffect } from "react";
+import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
 
 export default function PasswordTable() {
@@ -11,10 +11,10 @@ export default function PasswordTable() {
   const [search, setSearch] = useState("");
   const [getData, setGetData] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  // modal control
   const [deleteId, setDeleteId] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  // GET API
 
   const getPasswords = async () => {
     setLoading(true);
@@ -33,17 +33,18 @@ export default function PasswordTable() {
     getPasswords();
   }, []);
 
-  // ✅ Confirm delete
+  // DELETE API
+
   const handleDelete = async () => {
     try {
       setLoading(true);
       const res = await axios.delete(`password/api/${deleteId}`);
 
       if (res.status === 200) {
-        showAlertMessage({ message: res.data.message, type: "success" });
+        showAlertMessage({ message: res.data.message });
         setGetData((prev) => prev.filter((item) => item._id !== deleteId));
       } else {
-        showAlertMessage({ message: "Failed to delete", type: "error" });
+        showAlertMessage({ message, type: "error" });
       }
     } catch (error) {
       const { message } = handleAxiosError(error);
@@ -55,9 +56,10 @@ export default function PasswordTable() {
     }
   };
 
+  // FILTER DATA
 
   const filteredData = getData.filter((row) =>
-    row.appName.toLowerCase().includes(search.toLowerCase())
+    row.appName.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -139,22 +141,26 @@ export default function PasswordTable() {
   );
 }
 
-const thStyle = { padding: "10px", fontWeight: "bold", border: "1px solid #ccc" };
+const thStyle = {
+  padding: "10px",
+  fontWeight: "bold",
+  border: "1px solid #ccc",
+};
 const tdStyle = { padding: "10px", border: "1px solid #ccc" };
 const btnEdit = {
-  background: "#2563eb",
   color: "#fff",
   border: "none",
+  cursor: "pointer",
   padding: "5px 8px",
   marginRight: "5px",
   borderRadius: "5px",
-  cursor: "pointer",
+  background: "#2563eb",
 };
 const btnDelete = {
-  background: "#e11d48",
   color: "#fff",
   border: "none",
+  cursor: "pointer",
   padding: "5px 8px",
   borderRadius: "5px",
-  cursor: "pointer",
+  background: "#e11d48",
 };
