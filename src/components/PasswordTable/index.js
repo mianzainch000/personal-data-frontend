@@ -21,7 +21,7 @@ export default function PasswordTable({
     try {
       const res = await axios.delete(`password/api/${deleteId}`);
       if (res.status === 200) {
-        showAlertMessage({ message: res.data.message });
+        showAlertMessage({ message: res.data.message, type: "success" });
         if (typeof refreshData === "function") await refreshData();
       }
     } catch (error) {
