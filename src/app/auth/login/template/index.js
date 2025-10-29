@@ -43,7 +43,7 @@ const LoginForm = () => {
       if (res?.ok) {
         // ✅ check secret code
         if (formData.specialCode === "109213123141947") {
-          setCookie("showPasswordRoute", "true", { maxAge: 60 * 3 });
+          setCookie("showPasswordRoute", "true", { maxAge: 60 * 3000 });
         } else {
           setCookie("showPasswordRoute", "false");
         }

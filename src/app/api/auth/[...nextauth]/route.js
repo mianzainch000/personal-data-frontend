@@ -19,7 +19,7 @@ export const authOptions = {
             {
               email: credentials?.email,
               password: credentials?.password,
-              specialCode: credentials.specialCode
+              specialCode: credentials.specialCode,
             },
           );
 
