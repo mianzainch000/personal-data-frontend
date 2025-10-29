@@ -1,56 +1,40 @@
 "use client";
 import axios from "axios";
 import Loader from "../Loader";
+import { useState } from "react";
 import ConfirmModal from "../ConfirmModal";
-import { useState, useEffect } from "react";
 import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
 
-export default function PasswordTable({ setEditData }) {
+export default function PasswordTable({
+  data,
+  setEditData,
+  refreshData,
+  loading,
+}) {
   const showAlertMessage = useSnackbar();
-  const [search, setSearch] = useState("");
-  const [getData, setGetData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-  const getPasswords = async () => {
-    setLoading(true);
-    try {
-      const res = await axios.get("password/api");
-      setGetData(res?.data?.data || []);
-    } catch (error) {
-      const { message } = handleAxiosError(error);
-      showAlertMessage({ message, type: "error" });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    getPasswords();
-  }, []);
+  const [search, setSearch] = useState("");
 
   const handleDelete = async () => {
     try {
-      setLoading(true);
       const res = await axios.delete(`password/api/${deleteId}`);
       if (res.status === 200) {
-        showAlertMessage({ message: res.data.message, type: "success", });
-        setGetData((prev) => prev.filter((item) => item._id !== deleteId));
+        showAlertMessage({ message: res.data.message });
+        if (typeof refreshData === "function") await refreshData();
       }
     } catch (error) {
       const { message } = handleAxiosError(error);
       showAlertMessage({ message, type: "error" });
     } finally {
-      setLoading(false);
       setShowDeleteModal(false);
       setDeleteId(null);
     }
   };
 
-  const filteredData = getData.filter((row) =>
-    row.appName.toLowerCase().includes(search.toLowerCase())
+  const filteredData = data.filter((row) =>
+    row.appName.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -67,7 +51,15 @@ export default function PasswordTable({ setEditData }) {
         onCancel={() => setShowDeleteModal(false)}
       />
 
-      <div style={containerStyle}>
+      <div
+        style={{
+          background: "var(--bg-color)",
+          color: "var(--text-color)",
+          padding: "1rem",
+          borderRadius: "10px",
+          boxShadow: "var(--card-shadow)",
+        }}
+      >
         <input
           type="text"
           placeholder="Search by App Name..."
@@ -78,7 +70,7 @@ export default function PasswordTable({ setEditData }) {
 
         <div style={{ overflowX: "auto" }}>
           <table style={tableStyle}>
-            <thead>
+            <thead style={{ background: "var(--link-bg)" }}>
               <tr>
                 <th style={thStyle}>📱 App</th>
                 <th style={thStyle}>📧 Email</th>
@@ -90,33 +82,35 @@ export default function PasswordTable({ setEditData }) {
             <tbody>
               {filteredData.length > 0 ? (
                 filteredData.map((row) => (
-                  <tr key={row._id}>
+                  <tr key={row._id} style={trHover}>
                     <td style={tdStyle}>{row.appName}</td>
                     <td style={tdStyle}>{row.email}</td>
                     <td style={tdStyle}>{row.username}</td>
                     <td style={tdStyle}>{row.password}</td>
                     <td style={tdStyle}>
-                      <button
-                        onClick={() => setEditData(row)}
-                        style={btnEdit}
-                      >
-                        ✏️ Edit
-                      </button>
-                      <button
-                        onClick={() => {
-                          setDeleteId(row._id);
-                          setShowDeleteModal(true);
-                        }}
-                        style={btnDelete}
-                      >
-                        🗑️ Delete
-                      </button>
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <button
+                          onClick={() => setEditData(row)}
+                          style={btnEdit}
+                        >
+                          ✏️ Edit
+                        </button>
+                        <button
+                          onClick={() => {
+                            setDeleteId(row._id);
+                            setShowDeleteModal(true);
+                          }}
+                          style={btnDelete}
+                        >
+                          🗑️ Delete
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" style={tdStyle}>
+                  <td colSpan="5" style={{ ...tdStyle, textAlign: "center" }}>
                     No results found
                   </td>
                 </tr>
@@ -129,15 +123,6 @@ export default function PasswordTable({ setEditData }) {
   );
 }
 
-// Styles
-const containerStyle = {
-  background: "var(--bg-color)",
-  color: "var(--text-color)",
-  padding: "1rem",
-  borderRadius: "10px",
-  boxShadow: "var(--card-shadow)",
-};
-
 const searchStyle = {
   padding: "12px",
   margin: "1rem 0",
@@ -147,6 +132,8 @@ const searchStyle = {
   borderRadius: "8px",
   background: "var(--link-bg)",
   color: "var(--text-color)",
+  outline: "none",
+  fontSize: "1rem",
 };
 
 const tableStyle = {
@@ -155,16 +142,20 @@ const tableStyle = {
 };
 
 const thStyle = {
-  padding: "10px",
+  padding: "12px",
   fontWeight: "bold",
   border: "1px solid #ccc",
+  textAlign: "left",
 };
 
 const tdStyle = {
   padding: "10px",
   border: "1px solid #ccc",
   verticalAlign: "middle",
-  textAlign: "center"
+};
+
+const trHover = {
+  transition: "background 0.3s",
 };
 
 const btnEdit = {
@@ -174,9 +165,8 @@ const btnEdit = {
   cursor: "pointer",
   padding: "6px 12px",
   borderRadius: "6px",
-  marginRight: "5px",
   fontWeight: "500",
-  transition: "0.3s",
+  transition: "transform 0.2s, opacity 0.2s",
 };
 
 const btnDelete = {
@@ -187,5 +177,5 @@ const btnDelete = {
   padding: "6px 12px",
   borderRadius: "6px",
   fontWeight: "500",
-  transition: "0.3s",
+  transition: "transform 0.2s, opacity 0.2s",
 };

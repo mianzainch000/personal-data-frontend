@@ -6,7 +6,7 @@ import styles from "./PasswordForm.module.css";
 import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
 
-export default function PasswordForm({ editData, setEditData }) {
+export default function PasswordForm({ editData, setEditData, refreshData }) {
   const showAlertMessage = useSnackbar();
   const [email, setEmail] = useState("");
   const [appName, setAppName] = useState("");
@@ -15,7 +15,7 @@ export default function PasswordForm({ editData, setEditData }) {
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
-  // ✅ jab editData change ho to form fill ho jaye
+  // ✅ Autofill form on edit
   useEffect(() => {
     if (editData) {
       setShowForm(true);
@@ -33,7 +33,6 @@ export default function PasswordForm({ editData, setEditData }) {
     try {
       let res;
       if (editData) {
-        // ✅ Update API
         res = await axios.put(`password/api/${editData._id}`, {
           appName,
           email,
@@ -41,7 +40,6 @@ export default function PasswordForm({ editData, setEditData }) {
           password,
         });
       } else {
-        // ✅ Add new
         res = await axios.post("password/api", {
           appName,
           email,
@@ -56,7 +54,10 @@ export default function PasswordForm({ editData, setEditData }) {
           type: "success",
         });
 
-        // reset everything
+        // ✅ Refresh table instantly
+        if (typeof refreshData === "function") await refreshData();
+
+        // reset form
         setAppName("");
         setEmail("");
         setUsername("");
@@ -82,7 +83,10 @@ export default function PasswordForm({ editData, setEditData }) {
       {loading && <Loader />}
       <div className={styles.container}>
         {!showForm && (
-          <button className={styles.openButton} onClick={() => setShowForm(true)}>
+          <button
+            className={styles.openButton}
+            onClick={() => setShowForm(true)}
+          >
             ➕ Add New Password
           </button>
         )}

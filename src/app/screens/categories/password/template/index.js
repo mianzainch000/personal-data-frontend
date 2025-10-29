@@ -1,17 +1,49 @@
 "use client";
-
-import PasswordTable from "@/components/Table";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useSnackbar } from "@/components/Snackbar";
 import PasswordForm from "@/components/PasswordForm";
-import { useState } from "react";
+import PasswordTable from "@/components/PasswordTable";
+import handleAxiosError from "@/components/HandleAxiosError";
 
-const Password = () => {
-    const [editData, setEditData] = useState(null);
-    return (
-        <div style={{ padding: "2rem" }}>
-            <PasswordForm editData={editData} setEditData={setEditData} />
-            <PasswordTable setEditData={setEditData} />
-        </div>
-    );
-};
+export default function PasswordClientWrapper() {
+  const showAlertMessage = useSnackbar();
+  const [data, setData] = useState([]);
+  const [editData, setEditData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-export default Password;
+  // ✅ Fetch all passwords
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get("password/api");
+      setData(res?.data?.data || []);
+    } catch (error) {
+      const { message } = handleAxiosError(error);
+      showAlertMessage({ message, type: "error" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <PasswordForm
+        editData={editData}
+        setEditData={setEditData}
+        refreshData={fetchData}
+      />
+      <PasswordTable
+        data={data}
+        setData={setData}
+        setEditData={setEditData}
+        refreshData={fetchData}
+        loading={loading}
+      />
+    </>
+  );
+}

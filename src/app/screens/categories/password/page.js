@@ -1,12 +1,9 @@
-
 import { cookies } from "next/headers";
-import Password from "./template";
-const PasswordPage = () => {
+import PasswordClientWrapper from "./template";
+
+export default async function PasswordPage() {
   const cookieStore = cookies();
   const access = cookieStore.get("showPasswordRoute");
-
-
-
 
   if (!access || access.value !== "true") {
     return (
@@ -20,13 +17,12 @@ const PasswordPage = () => {
     <div style={{ padding: "2rem" }}>
       <h1>🔒 Secret Password Page</h1>
       <p>Only visible if you entered the correct Special Code at login.</p>
-      <Password />
 
+      {/* ✅ Client-side Wrapper */}
+      <PasswordClientWrapper />
     </div>
   );
-};
-
-export default PasswordPage;
+}
 
 export function generateMetadata() {
   return { title: "Passwords" };
