@@ -20,7 +20,7 @@ export const authOptions = {
               email: credentials?.email,
               password: credentials?.password,
               specialCode: credentials.specialCode,
-            }
+            },
           );
 
           if (res?.status === 200) {
@@ -32,7 +32,9 @@ export const authOptions = {
               maxAge: 24 * 60 * 60,
             });
 
-            cookies().set("firstName", user.firstName, { maxAge: 24 * 60 * 60 });
+            cookies().set("firstName", user.firstName, {
+              maxAge: 24 * 60 * 60,
+            });
             cookies().set("lastName", user.lastName, { maxAge: 24 * 60 * 60 });
 
             // ✅ Save access cookie (3 minutes)
@@ -45,15 +47,17 @@ export const authOptions = {
             throw new Error(res?.data?.message || "Login failed");
           }
         } catch (error) {
-          console.error("Authorize error:", error?.response?.data || error.message);
+          console.error(
+            "Authorize error:",
+            error?.response?.data || error.message,
+          );
           const backendMessage =
             error?.response?.data?.message ||
             error.message ||
             "Invalid email or password";
           throw new Error(backendMessage);
         }
-      }
-
+      },
     }),
   ],
   pages: {

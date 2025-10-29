@@ -88,7 +88,13 @@ export default function PasswordTable({
                     <td style={tdStyle}>{row.username}</td>
                     <td style={tdStyle}>{row.password}</td>
                     <td style={tdStyle}>
-                      <div style={{ display: "flex", gap: "8px" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          gap: "8px",
+                          justifyContent: "center",
+                        }}
+                      >
                         <button
                           onClick={() => setEditData(row)}
                           style={btnEdit}
@@ -139,19 +145,21 @@ const searchStyle = {
 const tableStyle = {
   width: "100%",
   borderCollapse: "collapse",
+  textAlign: "center",
 };
 
 const thStyle = {
   padding: "12px",
   fontWeight: "bold",
   border: "1px solid #ccc",
-  textAlign: "left",
+  textAlign: "center",
 };
 
 const tdStyle = {
   padding: "10px",
   border: "1px solid #ccc",
   verticalAlign: "middle",
+  textAlign: "center",
 };
 
 const trHover = {
@@ -167,6 +175,7 @@ const btnEdit = {
   borderRadius: "6px",
   fontWeight: "500",
   transition: "transform 0.2s, opacity 0.2s",
+  textAlign: "center",
 };
 
 const btnDelete = {
@@ -178,4 +187,5 @@ const btnDelete = {
   borderRadius: "6px",
   fontWeight: "500",
   transition: "transform 0.2s, opacity 0.2s",
+  textAlign: "center",
 };

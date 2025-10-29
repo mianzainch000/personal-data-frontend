@@ -40,8 +40,7 @@ const LoginForm = () => {
       });
 
       if (res?.ok) {
-
-        console.log("aaaaaaaaaaaaaaaaaaaaaaa", res)
+        console.log("aaaaaaaaaaaaaaaaaaaaaaa", res);
 
         showAlert({ message: "✅ Login successful", type: "success" });
 
