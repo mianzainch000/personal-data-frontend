@@ -130,36 +130,36 @@ export default function PasswordTable({
 }
 
 const searchStyle = {
+  width: "100%",
   padding: "12px",
   margin: "1rem 0",
-  width: "100%",
-  maxWidth: "400px",
-  border: "1px solid var(--link-hover-bg)",
-  borderRadius: "8px",
-  background: "var(--link-bg)",
-  color: "var(--text-color)",
-  outline: "none",
   fontSize: "1rem",
+  outline: "none",
+  maxWidth: "400px",
+  borderRadius: "8px",
+  color: "var(--text-color)",
+  background: "var(--link-bg)",
+  border: "1px solid var(--link-hover-bg)",
 };
 
 const tableStyle = {
   width: "100%",
-  borderCollapse: "collapse",
   textAlign: "center",
+  borderCollapse: "collapse",
 };
 
 const thStyle = {
   padding: "12px",
   fontWeight: "bold",
-  border: "1px solid #ccc",
   textAlign: "center",
+  border: "1px solid #ccc",
 };
 
 const tdStyle = {
   padding: "10px",
-  border: "1px solid #ccc",
-  verticalAlign: "middle",
   textAlign: "center",
+  verticalAlign: "middle",
+  border: "1px solid #ccc",
 };
 
 const trHover = {
@@ -167,25 +167,25 @@ const trHover = {
 };
 
 const btnEdit = {
-  background: "linear-gradient(90deg, #3b82f6, #2563eb)",
-  color: "#fff",
   border: "none",
+  color: "#fff",
   cursor: "pointer",
-  padding: "6px 12px",
-  borderRadius: "6px",
   fontWeight: "500",
-  transition: "transform 0.2s, opacity 0.2s",
+  padding: "6px 12px",
   textAlign: "center",
+  borderRadius: "6px",
+  transition: "transform 0.2s, opacity 0.2s",
+  background: "linear-gradient(90deg, #3b82f6, #2563eb)",
 };
 
 const btnDelete = {
-  background: "linear-gradient(90deg, #f43f5e, #e11d48)",
   color: "#fff",
   border: "none",
   cursor: "pointer",
+  fontWeight: "500",
   padding: "6px 12px",
   borderRadius: "6px",
-  fontWeight: "500",
-  transition: "transform 0.2s, opacity 0.2s",
   textAlign: "center",
+  transition: "transform 0.2s, opacity 0.2s",
+  background: "linear-gradient(90deg, #f43f5e, #e11d48)",
 };
