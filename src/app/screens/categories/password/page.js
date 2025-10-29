@@ -1,10 +1,12 @@
-import { cookies } from "next/headers";
-import PasswordTable from "@/components/Table";
-import PasswordForm from "@/components/PasswordForm";
 
-const Password = () => {
+import { cookies } from "next/headers";
+import Password from "./template";
+const PasswordPage = () => {
   const cookieStore = cookies();
   const access = cookieStore.get("showPasswordRoute");
+
+
+
 
   if (!access || access.value !== "true") {
     return (
@@ -14,22 +16,17 @@ const Password = () => {
     );
   }
 
-  const initialData = [
-    { app: "LinkedIn", email: "zain@gmail.com", password: "1234" },
-  ];
-
   return (
     <div style={{ padding: "2rem" }}>
       <h1>🔒 Secret Password Page</h1>
       <p>Only visible if you entered the correct Special Code at login.</p>
+      <Password />
 
-      <PasswordForm />
-      <PasswordTable initialData={initialData} />
     </div>
   );
 };
 
-export default Password;
+export default PasswordPage;
 
 export function generateMetadata() {
   return { title: "Passwords" };

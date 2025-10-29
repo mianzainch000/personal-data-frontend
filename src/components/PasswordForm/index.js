@@ -1,12 +1,12 @@
 "use client";
 import axios from "axios";
 import Loader from "../Loader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./PasswordForm.module.css";
 import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
 
-export default function PasswordForm() {
+export default function PasswordForm({ editData, setEditData }) {
   const showAlertMessage = useSnackbar();
   const [email, setEmail] = useState("");
   const [appName, setAppName] = useState("");
@@ -15,45 +15,63 @@ export default function PasswordForm() {
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
+  // ✅ jab editData change ho to form fill ho jaye
+  useEffect(() => {
+    if (editData) {
+      setShowForm(true);
+      setAppName(editData.appName);
+      setEmail(editData.email);
+      setUsername(editData.username);
+      setPassword(editData.password);
+    }
+  }, [editData]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const res = await axios.post("password/api", {
-        appName,
-        email,
-        username,
-        password,
-      });
+      let res;
+      if (editData) {
+        // ✅ Update API
+        res = await axios.put(`password/api/${editData._id}`, {
+          appName,
+          email,
+          username,
+          password,
+        });
+      } else {
+        // ✅ Add new
+        res = await axios.post("password/api", {
+          appName,
+          email,
+          username,
+          password,
+        });
+      }
 
-      // close form
-      setShowForm(false);
-
-      if (res?.status === 201) {
+      if (res?.status === 200 || res?.status === 201) {
         showAlertMessage({
           message: res?.data?.message,
           type: "success",
         });
 
-        // reset fields
+        // reset everything
         setAppName("");
         setEmail("");
         setUsername("");
         setPassword("");
+        setEditData(null);
+        setShowForm(false);
       } else {
         showAlertMessage({
-          message:
-            res?.data?.errors || res?.data?.message,
+          message: res?.data?.message || "Something went wrong",
           type: "error",
         });
       }
     } catch (error) {
       const { message } = handleAxiosError(error);
-      showAlertMessage({
-        message: message,
-        type: "error",
-      });
+      showAlertMessage({ message, type: "error" });
     } finally {
       setLoading(false);
     }
@@ -63,20 +81,25 @@ export default function PasswordForm() {
     <>
       {loading && <Loader />}
       <div className={styles.container}>
-        <button className={styles.openButton} onClick={() => setShowForm(true)}>
-          ➕ Add New Password
-        </button>
+        {!showForm && (
+          <button className={styles.openButton} onClick={() => setShowForm(true)}>
+            ➕ Add New Password
+          </button>
+        )}
 
         {showForm && (
           <div className={styles.overlay}>
             <div className={styles.formCard}>
               <button
                 className={styles.closeButton}
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  setShowForm(false);
+                  setEditData(null);
+                }}
               >
                 ✖
               </button>
-              <h2>Add App Details</h2>
+              <h2>{editData ? "Edit App Details" : "Add App Details"}</h2>
 
               <form className={styles.form} onSubmit={handleSubmit}>
                 <label>App Name</label>
@@ -84,7 +107,6 @@ export default function PasswordForm() {
                   type="text"
                   value={appName}
                   onChange={(e) => setAppName(e.target.value)}
-                  placeholder="e.g. LinkedIn"
                 />
 
                 <label>Email</label>
@@ -92,7 +114,6 @@ export default function PasswordForm() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. zain@gmail.com"
                 />
 
                 <label>Username</label>
@@ -100,7 +121,6 @@ export default function PasswordForm() {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="e.g. zainishfaq"
                 />
 
                 <label>Password</label>
@@ -108,11 +128,10 @@ export default function PasswordForm() {
                   type="text"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="1234"
                 />
 
                 <button type="submit" className={styles.submitButton}>
-                  Submit
+                  {editData ? "Update" : "Submit"}
                 </button>
               </form>
             </div>
