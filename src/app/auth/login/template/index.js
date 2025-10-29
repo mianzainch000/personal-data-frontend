@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Loader from "@/components/Loader";
-import { setCookie } from "cookies-next";
 import styles from "../../auth.module.css";
 import { useRouter } from "next/navigation";
 import { useSnackbar } from "@/components/Snackbar";
@@ -41,12 +40,8 @@ const LoginForm = () => {
       });
 
       if (res?.ok) {
-        // ✅ check secret code
-        if (formData.specialCode === "109213123141947") {
-          setCookie("showPasswordRoute", "true", { maxAge: 60 * 3000 });
-        } else {
-          setCookie("showPasswordRoute", "false");
-        }
+
+        console.log("aaaaaaaaaaaaaaaaaaaaaaa", res)
 
         showAlert({ message: "✅ Login successful", type: "success" });
 

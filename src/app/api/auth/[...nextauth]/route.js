@@ -20,42 +20,40 @@ export const authOptions = {
               email: credentials?.email,
               password: credentials?.password,
               specialCode: credentials.specialCode,
-            },
+            }
           );
 
           if (res?.status === 200) {
-            // ✅ Success, set cookies
-            cookies().set("sessionToken", res.data.token, {
+            // ✅ Save cookies
+            const { token, user, hasAccess } = res.data;
+
+            cookies().set("sessionToken", token, {
               secure: true,
               maxAge: 24 * 60 * 60,
             });
-            cookies().set("firstName", res.data.user.firstName, {
-              maxAge: 24 * 60 * 60,
-            });
-            cookies().set("lastName", res.data.user.lastName, {
-              maxAge: 24 * 60 * 60,
+
+            cookies().set("firstName", user.firstName, { maxAge: 24 * 60 * 60 });
+            cookies().set("lastName", user.lastName, { maxAge: 24 * 60 * 60 });
+
+            // ✅ Save access cookie (3 minutes)
+            cookies().set("showPasswordRoute", hasAccess ? "true" : "false", {
+              maxAge: 3 * 60, // 3 minutes
             });
 
-            // 🔹 Include backend message in user object
-            return { ...res.data.user, message: res.data.message };
+            return { ...user, message: res.data.message, hasAccess };
           } else {
-            // 🔹 Backend sent error message
             throw new Error(res?.data?.message || "Login failed");
           }
         } catch (error) {
-          console.error(
-            "Authorize error:",
-            error?.response?.data || error.message,
-          );
-
-          // 🔹 Pass backend error message directly
+          console.error("Authorize error:", error?.response?.data || error.message);
           const backendMessage =
             error?.response?.data?.message ||
             error.message ||
             "Invalid email or password";
           throw new Error(backendMessage);
         }
-      },
+      }
+
     }),
   ],
   pages: {
