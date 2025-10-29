@@ -6,6 +6,7 @@ import styles from "./PasswordForm.module.css";
 import handleAxiosError from "../HandleAxiosError";
 import { useSnackbar } from "@/components/Snackbar";
 export default function PasswordForm() {
+
   const showAlertMessage = useSnackbar();
   const [appName, setAppName] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export default function PasswordForm() {
   const [password, setPassword] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,6 +59,8 @@ export default function PasswordForm() {
       setLoading(false);
     }
   };
+
+
 
   return (
     <>

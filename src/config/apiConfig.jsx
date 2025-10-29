@@ -3,5 +3,6 @@ export const apiConfig = {
   password: {
     get: "get",
     post: "create",
+    delete: "delete",
   },
 };
