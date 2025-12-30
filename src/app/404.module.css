@@ -1,0 +1,136 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  padding: 3rem 1.25rem;
+  background: var(--bg1);
+  justify-content: center;
+  background-attachment: fixed;
+}
+
+.card {
+  gap: 1.5rem;
+  width: 100%;
+  display: grid;
+  max-width: 920px;
+  padding: 2.25rem;
+  border-radius: 18px;
+  align-items: center;
+  background: var(--card-bg);
+  backdrop-filter: blur(6px);
+  grid-template-columns: 1fr 1.1fr;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+.illustration {
+  display: flex;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  transform: translateY(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.header {
+  padding: 0.25rem 0.5rem;
+}
+
+.title {
+  color: #0f172a;
+  font-size: 2rem;
+  line-height: 1.05;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.actions {
+  gap: 0.75rem;
+  display: flex;
+  margin-top: 1.25rem;
+}
+
+.primaryBtn {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  color: white;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  background: var(--accent);
+  background-clip: padding-box;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.18);
+}
+
+.primaryBtn:hover,
+.primaryBtn:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(59, 130, 246, 0.18);
+}
+
+.ghostBtn {
+  transition:
+    background 0.14s ease,
+    transform 0.14s ease;
+  color: #0f172a;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.62rem 0.9rem;
+  background: transparent;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.ghostBtn:hover,
+.ghostBtn:focus {
+  transform: translateY(-2px);
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.footnote {
+  grid-column: 1 / -1;
+  margin-top: 0.75rem;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .card {
+    padding: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .svg {
+    max-width: 260px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
