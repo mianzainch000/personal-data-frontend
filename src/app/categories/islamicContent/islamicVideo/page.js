@@ -29,6 +29,10 @@ const links = [
         label: "Muaviya-Bin-Yazeed-Marwan-Bin-Hakam",
         href: "https://www.youtube.com/watch?v=PTKX8A653iA",
     },
+    {
+        label: "Raf‘-ul-Yadain Reference",
+        href: "https://www.youtube.com/shorts/wXUIsfX7HTU"
+    },
 ];
 
 const IslamicVideo = () => {
