@@ -31,7 +31,7 @@ const links = [
     },
     {
         label: "Raf‘-ul-Yadain Reference",
-        href: "https://www.youtube.com/shorts/wXUIsfX7HTU"
+        href: "https://www.youtube.com/shorts/wXUIsfX7HTU",
     },
 ];
 
