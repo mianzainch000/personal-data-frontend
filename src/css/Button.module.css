@@ -1,0 +1,40 @@
+.customBtn {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+/* Primary */
+.primary {
+  color: var(--text-primary);
+  background-color: var(--color-primary);
+}
+
+.primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Danger / Logout */
+.danger {
+  color: var(--text-primary);
+  background-color: var(--color-danger);
+}
+
+.danger:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Ghost / Cancel */
+.ghost {
+  color: var(--text-primary);
+  background-color: var(--color-ghost);
+}
+
+.ghost:hover {
+  background-color: var(--color-ghost-hover);
+}

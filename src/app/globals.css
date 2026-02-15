@@ -1,0 +1,43 @@
+:root {
+  /* Backgrounds */
+  --bg-main: #ffffff;
+  --card-bg: #ffffff;
+  --card-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+
+  /* Text */
+  --text-primary: #222222;
+  --text-inverse: #ffffff;
+
+  /* Buttons */
+  --color-primary: #2563eb;
+  --color-danger: #ef4444;
+  --color-ghost: #f3f4f6;
+  --color-ghost-hover: #e5e7eb;
+
+  /* Loader */
+  --loader-overlay-bg: var(--bg-main);
+  --loader-track-color: var(--color-ghost);
+  --loader-spin-color: var(--color-primary);
+}
+
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-main: #1a202c;
+  --card-bg: #2d3748;
+  --card-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+
+  /* Text */
+  --text-primary: #f7fafc;
+  --text-inverse: #1a202c;
+
+  /* Buttons */
+  --color-primary: #63b3ed;
+  --color-danger: #ef4444;
+  --color-ghost: #374151;
+  --color-ghost-hover: #4b5563;
+
+  /* Loader */
+  --loader-overlay-bg: var(--bg-main);
+  --loader-track-color: var(--color-ghost);
+  --loader-spin-color: var(--color-primary);
+}
